@@ -20,7 +20,7 @@ fn main() {
     for i in 1..=lines.len() {
         let line = lines.get(i-1).unwrap();
         let (_, game) = line.split_once(':').unwrap();
-        print!("Game {i}: {game:#?}\t");
+        // print!("Game {i}: {game:#?}\t");
         let sets : Vec<&str> = game.split(';').collect();
         let mut most_red    : i32 = 0;
         let mut most_green  : i32 = 0;
@@ -35,25 +35,25 @@ fn main() {
                 if reg_r.is_match(pull) {
                     let r  = number.find(pull).unwrap().as_str().parse::<i32>().unwrap();
                     red += r;
-                    print!("r: {r:?}, ");
+                    // print!("r: {r:?}, ");
                 } else if reg_b.is_match(pull) {
 
                     let b  = number.find(pull).unwrap().as_str().parse::<i32>().unwrap();
                     blue += b;
-                    print!("b: {b:?}, ");
+                    // print!("b: {b:?}, ");
                 } else if reg_g.is_match(pull) {
                     let g = number.find(pull).unwrap();
                     let g  = g.as_str().parse::<i32>().unwrap();
                     green += g;
-                    print!("g: {g:?}, ");
+                    // print!("g: {g:?}, ");
                 }
             }
-            print!(";");
+            // print!(";");
             most_red = most_red.max(red);
             most_blue = most_blue.max(blue);
             most_green =  most_green.max(green);
         } // Set Loop
-        print!("\n");
+        // print!("\n");
         if most_red <= MAX_RED && most_blue <= MAX_BLUE && most_green <= MAX_GREEN {
             println!("⭐ Game {i} possible, with {most_red} Red, {most_green} Green and {most_blue} Blue.");
             res += i as i32;
