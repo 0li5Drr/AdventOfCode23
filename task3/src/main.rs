@@ -12,6 +12,7 @@ fn main() {
     let line_len = lines.get(0).unwrap().len()+1; //+1 as including \n, which is trimmed by lines()
     
     let all_ids = number_pattern.find_iter(full_input);
+    let all_ids_g = number_pattern.find_iter(full_input);
     for id in all_ids {
         let range :Range<usize> = id.range();
         let mut is_part = false;
@@ -90,4 +91,12 @@ fn num_is_part(lines : &Vec<&str>, line : usize, offset : usize) -> bool {
         }
     }
     false
+}
+
+fn is_gear(lines : &Vec<&str>, idx : usize, line_len : usize) -> Option<i32> {
+    let mut adjacent_parts = 0;
+    
+
+
+    return None;
 }
